@@ -1,31 +1,25 @@
 <div class="container-fluid">
+  <div class="row text-center" style="background: aqua; margin-bottom: 10px">
+    <div class="col-12">
+      <h4>Dynamic Form</h4>
+    </div>
+  </div>
   <div class="row">
     <div class="col-6">
       <div class="row">
 
         <div class="col-6">
           <form [formGroup]="formContainer" (ngSubmit)="doSomething()">
-            <mat-list-item>
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-12">
-                    <app-identity formGroupName="identity" [ageOn]="toggleAge" [nameOn]="toggleName"></app-identity>
-                  </div>
-                  <div class="col-12">
-                    <app-location formGroupName="location" [cityOn]="toggleCity" [stateOn]="toggleState"></app-location>
-                  </div>
-                  <div class="col-12">
-                    <app-contact formGroupName="contact" [emailOn]="toggleEmail" [phoneOn]="togglePhone"></app-contact>
-                  </div>
-                </div>
-              </div>
+            <app-identity formGroupName="identity" [ageOn]="toggleAge" [nameOn]="toggleName"></app-identity>
 
-            </mat-list-item>
-            <mat-list-item>
-              <button mat-raised-button color="primary" [disabled]="formContainer.invalid">
-                Submit
-              </button>
-            </mat-list-item>
+            <app-location formGroupName="location" [cityOn]="toggleCity" [stateOn]="toggleState"></app-location>
+
+            <app-contact formGroupName="contact" [emailOn]="toggleEmail" [phoneOn]="togglePhone"></app-contact>
+
+            <button mat-raised-button color="primary" [disabled]="formContainer.invalid">
+              Submit
+            </button>
+
           </form>
         </div>
         <div class="col-6">
@@ -47,7 +41,7 @@
     <div class="col-6">
     <pre>
       Status: {{formContainer.status}}
-    {{formContainer.value | json}}
+      {{formContainer.value | json}}
     </pre>
     </div>
   </div>

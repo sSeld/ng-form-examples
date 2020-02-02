@@ -37,7 +37,7 @@ export class ControlPredicateDirective implements OnChanges {
       setTimeout(() => {
         form.addControl(this._name, this._control);
         this.viewContainer.createEmbeddedView(this.templateRef);
-      }, 0);
+      });
     } else {
       form.removeControl(this._name);
       this.viewContainer.clear();
