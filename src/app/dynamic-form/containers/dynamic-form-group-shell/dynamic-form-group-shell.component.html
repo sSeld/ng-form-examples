@@ -1,0 +1,78 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6">
+      <div class="row">
+
+        <div class="col-6">
+          <form [formGroup]="formContainer" (ngSubmit)="doSomething()">
+            <mat-list-item>
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-12">
+                    <app-identity formGroupName="identity" [ageOn]="toggleAge" [nameOn]="toggleName"></app-identity>
+                  </div>
+                  <div class="col-12">
+                    <app-location formGroupName="location" [cityOn]="toggleCity" [stateOn]="toggleState"></app-location>
+                  </div>
+                  <div class="col-12">
+                    <app-contact formGroupName="contact" [emailOn]="toggleEmail" [phoneOn]="togglePhone"></app-contact>
+                  </div>
+                </div>
+              </div>
+
+            </mat-list-item>
+            <mat-list-item>
+              <button mat-raised-button color="primary" [disabled]="formContainer.invalid">
+                Submit
+              </button>
+            </mat-list-item>
+          </form>
+        </div>
+        <div class="col-6">
+          <mat-chip-list>
+            <mat-chip (click)="toggleName = !toggleName">Name</mat-chip>
+            <mat-chip (click)="toggleAge = !toggleAge">Age</mat-chip>
+            <mat-chip (click)="toggleCity = !toggleCity">City</mat-chip>
+            <mat-chip (click)="toggleState = !toggleState">State</mat-chip>
+            <mat-chip (click)="toggleEmail = !toggleEmail">Email</mat-chip>
+            <mat-chip (click)="togglePhone = !togglePhone">Phone</mat-chip>
+          </mat-chip-list>
+        </div>
+
+
+      </div>
+
+
+    </div>
+    <div class="col-6">
+    <pre>
+      Status: {{formContainer.status}}
+    {{formContainer.value | json}}
+    </pre>
+    </div>
+  </div>
+
+
+</div>
+
+
+<!--<mat-grid-list cols="2" rowHeight="2:1" *ngIf="formContainer">-->
+<!--  <mat-grid-tile>-->
+<!--    <mat-grid-tile-header>Dynamic Form</mat-grid-tile-header>-->
+
+<!--    <mat-list role="list">-->
+
+
+<!--    </mat-list>-->
+
+<!--  </mat-grid-tile>-->
+<!--  <mat-grid-tile>-->
+<!--    <mat-grid-tile-header>Status: {{formContainer.status}}</mat-grid-tile-header>-->
+
+<!--    <pre>-->
+<!--    {{formContainer.value | json}}-->
+<!--    </pre>-->
+
+
+<!--  </mat-grid-tile>-->
+<!--</mat-grid-list>-->

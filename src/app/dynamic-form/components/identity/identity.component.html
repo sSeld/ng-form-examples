@@ -1,0 +1,20 @@
+<ng-container [formGroup]="ctrlCon.control">
+  <fieldset>
+    <label *controlPredicate="nameOn; options: {container: ctrlCon, control: name, name: 'name'}"> Name
+      <mat-form-field appearance="outline">
+        <input matInput type="text" formControlName="name"/>
+        <mat-hint>Hint</mat-hint>
+        <mat-error *ngIf="name.hasError('required')">Name required</mat-error>
+      </mat-form-field>
+    </label>
+    <label *controlPredicate="ageOn; options: {container: ctrlCon, control: age, name: 'age'}"> Age
+      <mat-form-field appearance="outline">
+
+        <input matInput type="text" formControlName="age"/>
+        <mat-hint>Hint</mat-hint>
+        <mat-error *ngIf="age.hasError('max')">Not a valid age</mat-error>
+      </mat-form-field>
+
+    </label>
+  </fieldset>
+</ng-container>

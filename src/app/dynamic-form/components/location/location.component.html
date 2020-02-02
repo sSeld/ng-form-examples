@@ -1,0 +1,18 @@
+<ng-container [formGroup]="ctrlCon.control">
+  <fieldset>
+    <label *controlPredicate="cityOn; options: {container: ctrlCon, control: city, name: 'city'}"> City
+      <mat-form-field appearance="outline">
+        <input matInput type="text" formControlName="city"/>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+    </label>
+    <label *controlPredicate="stateOn; options: {container: ctrlCon, control: state, name: 'state'}"> State
+      <mat-form-field appearance="outline">
+
+        <input matInput type="text" formControlName="state"/>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+
+    </label>
+  </fieldset>
+</ng-container>

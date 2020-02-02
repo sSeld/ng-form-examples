@@ -1,0 +1,22 @@
+<ng-container [formGroup]="ctrlCon.control">
+  <fieldset>
+    <label *controlPredicate="phoneOn; options: {container: ctrlCon, control: phone, name: 'phone'}"> Phone
+      <mat-form-field appearance="outline">
+        <input matInput type="text" formControlName="phone"/>
+        <mat-hint>Hint</mat-hint>
+        <mat-error *ngIf="phone.hasError('required')">Phone number required</mat-error>
+        <mat-error *ngIf="phone.hasError('pattern')">Not a valid phone number</mat-error>
+      </mat-form-field>
+    </label>
+    <label *controlPredicate="emailOn; options: {container: ctrlCon, control: email, name: 'email'}"> Email
+      <mat-form-field appearance="outline">
+
+        <input matInput type="text" formControlName="email"/>
+        <mat-hint>Hint</mat-hint>
+        <mat-error *ngIf="email.hasError('required')">Email required</mat-error>
+        <mat-error *ngIf="email.hasError('pattern')">Not a valid email</mat-error>
+      </mat-form-field>
+
+    </label>
+  </fieldset>
+</ng-container>
