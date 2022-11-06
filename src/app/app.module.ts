@@ -1,10 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {CoreModule} from './core/core.module';
 import {DynamicFormModule} from './dynamic-form/dynamic-form.module';
-import {MatGridListModule} from '@angular/material';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -12,9 +12,9 @@ import {MatGridListModule} from '@angular/material';
   ],
   imports: [
     BrowserModule,
-    CoreModule,
+    AppRoutingModule,
     DynamicFormModule,
-    MatGridListModule
+    NoopAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

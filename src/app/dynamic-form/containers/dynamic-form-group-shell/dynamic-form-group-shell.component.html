@@ -1,72 +1,36 @@
-<div class="container-fluid">
-  <div class="row text-center" style="background: aqua; margin-bottom: 10px">
-    <div class="col-12">
-      <h4>Dynamic Form</h4>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-6">
-      <div class="row">
+<mat-grid-list cols="6" rowHeight="100px">
+  <mat-grid-tile [colspan]="6" [style.background]="'lightblue'"><h4>Dynamic Form</h4>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="2" [rowspan]="6">
+    <form [formGroup]="formContainer" (ngSubmit)="doSomething()">
+      <app-identity formGroupName="identity" [ageOn]="toggleAge" [nameOn]="toggleName"></app-identity>
 
-        <div class="col-6">
-          <form [formGroup]="formContainer" (ngSubmit)="doSomething()">
-            <app-identity formGroupName="identity" [ageOn]="toggleAge" [nameOn]="toggleName"></app-identity>
+      <app-location formGroupName="location" [cityOn]="toggleCity" [stateOn]="toggleState"></app-location>
 
-            <app-location formGroupName="location" [cityOn]="toggleCity" [stateOn]="toggleState"></app-location>
+      <app-contact formGroupName="contact" [emailOn]="toggleEmail" [phoneOn]="togglePhone"></app-contact>
 
-            <app-contact formGroupName="contact" [emailOn]="toggleEmail" [phoneOn]="togglePhone"></app-contact>
+      <button mat-raised-button color="primary" [disabled]="formContainer.invalid">
+        Submit
+      </button>
 
-            <button mat-raised-button color="primary" [disabled]="formContainer.invalid">
-              Submit
-            </button>
+    </form>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="2" >
+    <mat-chip-list>
+      <mat-chip (click)="toggleName = !toggleName">Name</mat-chip>
+      <mat-chip (click)="toggleAge = !toggleAge">Age</mat-chip>
+      <mat-chip (click)="toggleCity = !toggleCity">City</mat-chip>
+      <mat-chip (click)="toggleState = !toggleState">State</mat-chip>
+      <mat-chip (click)="toggleEmail = !toggleEmail">Email</mat-chip>
+      <mat-chip (click)="togglePhone = !togglePhone">Phone</mat-chip>
+    </mat-chip-list>
+  </mat-grid-tile>
 
-          </form>
-        </div>
-        <div class="col-6">
-          <mat-chip-list>
-            <mat-chip (click)="toggleName = !toggleName">Name</mat-chip>
-            <mat-chip (click)="toggleAge = !toggleAge">Age</mat-chip>
-            <mat-chip (click)="toggleCity = !toggleCity">City</mat-chip>
-            <mat-chip (click)="toggleState = !toggleState">State</mat-chip>
-            <mat-chip (click)="toggleEmail = !toggleEmail">Email</mat-chip>
-            <mat-chip (click)="togglePhone = !togglePhone">Phone</mat-chip>
-          </mat-chip-list>
-        </div>
-
-
-      </div>
-
-
-    </div>
-    <div class="col-6">
-    <pre>
+  <mat-grid-tile [colspan]="2" [rowspan]="6">
+        <pre>
       Status: {{formContainer.status}}
-      {{formContainer.value | json}}
+          {{formContainer.value | json}}
     </pre>
-    </div>
-  </div>
 
-
-</div>
-
-
-<!--<mat-grid-list cols="2" rowHeight="2:1" *ngIf="formContainer">-->
-<!--  <mat-grid-tile>-->
-<!--    <mat-grid-tile-header>Dynamic Form</mat-grid-tile-header>-->
-
-<!--    <mat-list role="list">-->
-
-
-<!--    </mat-list>-->
-
-<!--  </mat-grid-tile>-->
-<!--  <mat-grid-tile>-->
-<!--    <mat-grid-tile-header>Status: {{formContainer.status}}</mat-grid-tile-header>-->
-
-<!--    <pre>-->
-<!--    {{formContainer.value | json}}-->
-<!--    </pre>-->
-
-
-<!--  </mat-grid-tile>-->
-<!--</mat-grid-list>-->
+  </mat-grid-tile>
+</mat-grid-list>

@@ -23,7 +23,6 @@ import {
   Validator,
   ValidatorFn, Validators
 } from '@angular/forms';
-import {MatInput} from '@angular/material';
 import {Platform} from '@angular/cdk/platform';
 import {ErrorStateMatcher} from '@angular/material/core';
 import {AutofillMonitor} from '@angular/cdk/text-field';
@@ -37,8 +36,8 @@ export class ContactComponent implements OnInit {
   @Input() phoneOn = false;
   @Input() emailOn = false;
 
-  private phone: FormControl;
-  private email: FormControl;
+  phone: FormControl;
+  email: FormControl;
 
   constructor(public ctrlCon: ControlContainer) {
   }
@@ -48,4 +47,7 @@ export class ContactComponent implements OnInit {
     this.email = new FormControl('', [Validators.required, Validators.pattern('\\S+@\\S+\\.\\S+')]);
   }
 
+  get group(): FormGroup {
+    return this.ctrlCon.control as FormGroup;
+  }
 }

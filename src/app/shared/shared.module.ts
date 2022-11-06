@@ -1,17 +1,18 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
-import {MatButtonModule, MatChipsModule, MatFormFieldModule, MatGridListModule, MatInputModule, MatListModule} from '@angular/material';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ControlPredicateDirective} from './control-predicate.directive';
+import {MatButtonModule} from "@angular/material/button";
+import {MatListModule} from "@angular/material/list";
+import {MatGridListModule} from "@angular/material/grid-list";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatChipsModule} from "@angular/material/chips";
 
 
 @NgModule({
   declarations: [ControlPredicateDirective],
   imports: [
-    CommonModule,
     FormsModule,
-    BrowserAnimationsModule,
     MatButtonModule,
     MatListModule,
     MatGridListModule,
@@ -20,8 +21,6 @@ import {ControlPredicateDirective} from './control-predicate.directive';
     MatChipsModule
   ],
   exports: [
-    FormsModule,
-    BrowserAnimationsModule,
     MatButtonModule,
     MatListModule,
     MatGridListModule,

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ControlContainer, FormControl} from '@angular/forms';
+import {ControlContainer, FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-location',
@@ -10,8 +10,8 @@ export class LocationComponent implements OnInit {
   @Input() cityOn = false;
   @Input() stateOn = false;
 
-  private city: FormControl;
-  private state: FormControl;
+  city: FormControl;
+  state: FormControl;
 
 
   constructor(public ctrlCon: ControlContainer) {
@@ -21,5 +21,7 @@ export class LocationComponent implements OnInit {
     this.city = new FormControl('', []);
     this.state = new FormControl('', []);
   }
-
+  get group(): FormGroup {
+    return this.ctrlCon.control as FormGroup;
+  }
 }

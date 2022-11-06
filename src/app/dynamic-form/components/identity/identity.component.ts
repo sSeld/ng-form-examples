@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ControlContainer, FormControl, Validators} from '@angular/forms';
+import {ControlContainer, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-identity',
@@ -10,8 +10,8 @@ export class IdentityComponent implements OnInit {
   @Input() nameOn = false;
   @Input() ageOn = false;
 
-  private name: FormControl;
-  private age: FormControl;
+  name: FormControl;
+  age: FormControl;
 
   constructor(public ctrlCon: ControlContainer) {
   }
@@ -20,5 +20,7 @@ export class IdentityComponent implements OnInit {
     this.name = new FormControl('', [Validators.required]);
     this.age = new FormControl('', [Validators.max(130)]);
   }
-
+  get group(): FormGroup {
+    return this.ctrlCon.control as FormGroup;
+  }
 }
